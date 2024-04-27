@@ -54,7 +54,7 @@ with open(os.path.join('data', 'dtypes.pickle'), 'rb') as fh:
 ########################################
 # Input validation functions
 
-def check_request(request, response):
+def check_request(request):
     if "data" not in request:
         error = "data error"
         return False, error
@@ -99,7 +99,7 @@ def check_categorical_values(observation):
 
 
 
-def check_numericals(observation, response):
+def check_numericals(observation):
     age = observation.get("age")
     if not isinstance(age, int) or age > 100 or age < 0: 
         error = f"age {age} not valid"
